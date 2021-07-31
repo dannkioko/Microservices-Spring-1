@@ -33,12 +33,11 @@ public class OrderService {
         }
         return products;
     }
-    public String getOrder(int id){
+    public OrderObject getOrder(int id){
         Cart cart = orderDAO.findById(id).orElse(new Cart());
         User user = tmp.getForObject("http://localhost:8080/api/db/users/"+Integer.toString(cart.getUserId()), User.class);
         Product prod = tmp.getForObject("http://localhost:8080/api/db/products/"+Integer.toString(cart.getProdId()), Product.class);
-        System.out.println(user.getFirstname()+"    "+user.getLastname());
-        System.out.println(prod.getCategory()+"    "+prod.getName());
-        return "String";
+        OrderObject ord = new OrderObject(user,prod);
+        return ord;  
     }
 }

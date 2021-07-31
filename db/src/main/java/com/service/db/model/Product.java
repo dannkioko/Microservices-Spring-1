@@ -10,15 +10,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-
 public class Product {
     @GeneratedValue
-    @Id 
-    private int id;
+    @Id
+    private Long id;
     private String name;
     private String category;
     private float price;

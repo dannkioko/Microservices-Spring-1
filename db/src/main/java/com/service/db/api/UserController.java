@@ -32,16 +32,16 @@ public class UserController{
     }
 
     @PostMapping
-    public void addUser(@RequestBody User user){
-        service.addUser(user);
+    public User addUser(@RequestBody User user){
+        return service.addUser(user);
     }
     @GetMapping("{id}")
     public Optional<User> getUser(@PathVariable("id") Long id){
         return service.getUser(id);
     }
     @PutMapping("{id}")
-    public void updateUser(@RequestBody User user, @PathVariable("id") Long id){
-        service.updateUser(user, id);
+    public User updateUser(@RequestBody User user, @PathVariable("id") Long id){
+        return service.updateUser(user, id);
     }
     @DeleteMapping("{id}")
     public void delete(@PathVariable("id") Long id){

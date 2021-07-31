@@ -1,7 +1,5 @@
 package com.service.product.api;
 
-import java.util.List;
-
 import com.service.product.model.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;

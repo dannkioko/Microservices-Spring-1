@@ -1,7 +1,5 @@
 package com.service.user.api;
 
-import java.util.List;
-
 import com.service.user.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;

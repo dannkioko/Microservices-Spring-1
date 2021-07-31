@@ -8,7 +8,6 @@ import java.util.List;
 import com.service.order.model.Cart;
 import com.service.order.model.OrderObject;
 import com.service.order.model.Product;
-import com.service.order.model.User;
 import com.service.order.service.OrderService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class OrderController{
         return service.getByuser(custid);
     }
     @GetMapping("order/{id}")
-    public String getOrder(@PathVariable("id") int id){
+    public OrderObject getOrder(@PathVariable("id") int id){
         return service.getOrder(id);
     }
     

@@ -23,8 +23,8 @@ public class UserService {
     public List<User> getUsers(){
         return userDAO.findAll();
     }
-    public void addUser(User user){
-        userDAO.save(user);
+    public User addUser(User user){
+        return userDAO.save(user);
     }
     public List<String> getUserByEmail( String email){
         List<User> users = userDAO.findByEmail(email);
@@ -37,13 +37,13 @@ public class UserService {
     public Optional<User> getUser(Long id){
         return userDAO.findById(id);
     }
-    public void updateUser(User user, Long id){
+    public User updateUser(User user, Long id){
         User s = userDAO.getById(id);
         s.setFirstname(user.getFirstname());
         s.setLastname(user.getLastname());
         s.setEmail(user.getEmail());
         s.setPhonenumber(user.getPhonenumber());
-        userDAO.save(s);
+        return userDAO.save(s);
     }
     public void delete(Long id){
         User user = userDAO.getById(id);
