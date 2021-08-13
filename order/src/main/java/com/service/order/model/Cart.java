@@ -18,6 +18,6 @@ public class Cart{
     @GeneratedValue
     @Id
     private int oid;
-    private int prodId;
+    private int productId;
     private int userId;
 }
