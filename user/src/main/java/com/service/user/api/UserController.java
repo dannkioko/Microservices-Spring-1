@@ -16,7 +16,7 @@ public class UserController{
     private RestTemplate tmp;
 
     @GetMapping("{id}")
-    public User getUser(@PathVariable("id") String id){
-        return tmp.getForObject("http://localhost:8080/api/db/users/"+id, User.class);
+    public User getUser(@PathVariable("id") int id){
+        return tmp.getForObject("http://localhost:8080/api/db/users/"+Integer.toString(id), User.class);
     }
 }
