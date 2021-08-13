@@ -16,8 +16,8 @@ public class ProductController{
     private RestTemplate tmp;
 
     @GetMapping("{name}")
-    public Product getProductsById(@PathVariable("id") int id){
-        return tmp.getForObject("http://localhost:8081/api/db/products/"+Integer.toString(id), Product.class);
+    public Product getProductsById(@PathVariable("name") int id){
+        return tmp.getForObject("http://localhost:8080/api/db/products/"+Integer.toString(id), Product.class);
     }
 
 
