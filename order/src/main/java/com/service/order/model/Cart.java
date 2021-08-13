@@ -20,4 +20,5 @@ public class Cart{
     private int oid;
     private int productId;
     private int userId;
+    private String orderDescription;
 }

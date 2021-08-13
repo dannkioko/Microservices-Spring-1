@@ -70,6 +70,7 @@ public class OrderService {
         if (order != null){
             order.setProductId(newOrder.getProductId());
             order.setUserId(newOrder.getUserId());
+            order.setOrderDescription(newOrder.getOrderDescription());
         }
         return order;
     }
