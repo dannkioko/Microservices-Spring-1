@@ -12,4 +12,5 @@ import lombok.Getter;
 public class OrderObject {
     private User user;
     private Product product;
+    private String orderDescription;
 }

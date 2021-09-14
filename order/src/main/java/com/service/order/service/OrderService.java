@@ -30,7 +30,7 @@ public class OrderService {
         Cart saved = orderDAO.save(order);
         User user = tmp.getForObject("http://localhost:8083/api/users/"+Integer.toString(saved.getUserId()), User.class);
         Product prod = tmp.getForObject("http://localhost:8082/api/products/"+Integer.toString(saved.getProductId()), Product.class);
-        OrderObject ord = new OrderObject(user,prod);
+        OrderObject ord = new OrderObject(user,prod, order.getOrderDescription());
         return ord;
     }
     public List<OrderObject> all(){
@@ -39,7 +39,7 @@ public class OrderService {
         for (Cart cart: carts){
             User user = tmp.getForObject("http://localhost:8083/api/users/"+Integer.toString(cart.getUserId()), User.class);
             Product prod = tmp.getForObject("http://localhost:8082/api/products/"+Integer.toString(cart.getProductId()), Product.class);
-            OrderObject ord = new OrderObject(user,prod);
+            OrderObject ord = new OrderObject(user,prod, cart.getOrderDescription());
             orders.add(ord);
         }
         return orders;
@@ -56,7 +56,7 @@ public class OrderService {
         Cart cart = orderDAO.findById(id).orElse(new Cart());
         User user = tmp.getForObject("http://localhost:8080/api/db/users/"+Integer.toString(cart.getUserId()), User.class);
         Product prod = tmp.getForObject("http://localhost:8080/api/db/products/"+Integer.toString(cart.getProductId()), Product.class);
-        OrderObject ord = new OrderObject(user,prod);
+        OrderObject ord = new OrderObject(user,prod, cart.getOrderDescription());
         return ord;  
     }
     public void delete(int id){
